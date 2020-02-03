@@ -1,5 +1,5 @@
 # Error-Detection
-detects errors with orientation and reorients the given test image and checks for physical defects suck as missing components, solder and traces.
+detects errors with orientation and reorients the given test image and checks for physical defects such as missing components, solder and traces.
 
 test environment: 
 
