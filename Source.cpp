@@ -120,7 +120,7 @@ int main(int argc, char** argv)
     imwrite("im_bw.jpg", img_bw);
     imwrite("im_bw_1.jpg", img_bw_1);
 
-    fastNlMeansDenoising(result, result_1, 40.0, 29, 51)//tweak parameters wrt final image details 
+    fastNlMeansDenoising(result, result_1, 40.0, 29, 51);//tweak parameters wrt final image details 
     
     imwrite("Defect1.jpg", result_1);
     waitKey(0);
