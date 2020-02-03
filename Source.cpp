@@ -96,33 +96,13 @@ int main(int argc, char** argv)
     // Print estimated homography
     cout << "Estimated homography : \n" << h << endl;
 
-    Mat dst;
-    Mat gray;
-    Mat gray_1;
-    Mat rgb = imread("C:\\CODE\\orb\\aligned.jpg");//path for test image
-    Mat rgb_1 = imread("C:\\CODE\\orb\\34.jpg");//path for reference image
-    cvtColor(rgb, gray, COLOR_RGB2GRAY);
-    cvtColor(rgb_1, gray_1, COLOR_RGB2GRAY);
-    equalizeHist(gray, dst);
-    Mat img_bw = gray > 138;
-    Mat img_bw_1 = gray_1 > 138;
-    Mat result = img_bw_1 - img_bw;
-    Mat result_1;
-    //comment below out for display
-    //namedWindow("Display window1", WINDOW_NORMAL);
-    //imshow("Display window1", result);
-    //namedWindow("Display window2", WINDOW_NORMAL);
-    //imshow("Display window2", img_bw);
-    //namedWindow("Display window3", WINDOW_NORMAL);
-    //imshow("Display window3", img_bw_1);
-    imwrite("im_gray.jpg", gray);
-    imwrite("im_gray_1.jpg", gray_1);
-    imwrite("im_bw.jpg", img_bw);
-    imwrite("im_bw_1.jpg", img_bw_1);
+        Mat img1 = imread("C:\\CODE\\cvexmple\\34.jpg");
+    Mat img2 = imread("C:\\CODE\\cvexmple\\aligned.jpg");
 
-    fastNlMeansDenoising(result, result_1, 40.0, 29, 51);//tweak parameters wrt final image details 
-    
-    imwrite("Defect1.jpg", result_1);
+        // calc the difference
+    Mat diff;
+    absdiff(img1, img2, diff);
+    imwrite("diff.jpg", diff);
     waitKey(0);
     return 0;
 }
