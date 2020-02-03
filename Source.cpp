@@ -69,13 +69,13 @@ void alignImages(Mat& im1, Mat& im2, Mat& im1Reg, Mat& h)
 int main(int argc, char** argv)
 {
     // Read reference image
-    string refFilename("C:\\CODE\\orb\\3.jpg");
+    string refFilename("C:\\CODE\\orb\\34.jpg");
     cout << "Reading reference image : " << refFilename << endl;
     Mat imReference = imread(refFilename);
 
 
     // Read image to be aligned
-    string imFilename("C:\\CODE\\orb\\1.jpg");
+    string imFilename("C:\\CODE\\orb\\12.jpg");
     cout << "Reading image to align : " << imFilename << endl;
     Mat im = imread(imFilename);
 
@@ -100,7 +100,7 @@ int main(int argc, char** argv)
     Mat gray;
     Mat gray_1;
     Mat rgb = imread("C:\\CODE\\orb\\aligned.jpg");//path for test image
-    Mat rgb_1 = imread("C:\\CODE\\orb\\3.jpg");//path for reference image
+    Mat rgb_1 = imread("C:\\CODE\\orb\\34.jpg");//path for reference image
     cvtColor(rgb, gray, COLOR_RGB2GRAY);
     cvtColor(rgb_1, gray_1, COLOR_RGB2GRAY);
     equalizeHist(gray, dst);
@@ -122,7 +122,7 @@ int main(int argc, char** argv)
 
     fastNlMeansDenoising(result, result_1, 40.0, 29, 51)//tweak parameters wrt final image details 
     
-    imwrite("Defect.jpg", result_1);
+    imwrite("Defect1.jpg", result_1);
     waitKey(0);
     return 0;
 }
